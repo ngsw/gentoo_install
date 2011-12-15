@@ -11,4 +11,4 @@ cat > /etc/resolv.conf <<'EOF'
 nameserver 192.168.1.1
 nameserver 8.8.8.8
 EOF
-
+/etc/init.d/sshd restart
