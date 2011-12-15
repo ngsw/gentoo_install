@@ -1,5 +1,34 @@
 #!/bin/sh
-fdisk /dev/sda
+fdisk /dev/sda <<'FDISKEOF'
+d
+1
+d
+2
+d
+3
+n
+p
+1
+
++128M
+n
+p
+2
+
++2048M
+n
+p
+3
+
+
+a
+1
+w
+
+FDISKEOF
+
+sleep 3
+
 mkfs.ext2 /dev/sda1
 mkfs.ext3 /dev/sda3
 mkswap /dev/sda2
