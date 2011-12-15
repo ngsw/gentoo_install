@@ -4,7 +4,7 @@
 # # dhcpd -HD eth0
 useradd jipp
 echo 'jjj' | passwd -q jipp
-sed -i 's/wheel:x:10:root/wheel:x:10:root,jipp/' /etc/group
+grep root /etc/group|grep jipp || sed -i 's/wheel:x:10:root/wheel:x:10:root,jipp/' /etc/group
 ifconfig eth0 192.168.1.222 broadcast 192.168.1.255 netmask 255.255.255.0 up
 route add default gw 192.168.1.1
 cat > /etc/resolv.conf <<'EOF'
