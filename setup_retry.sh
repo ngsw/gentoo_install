@@ -18,3 +18,21 @@ mount /dev/sda3 /mnt/gentoo
 mount /dev/sda1 /mnt/gentoo/boot
 mount -t proc none /mnt/gentoo/proc
 mount --rbind /dev/ /mnt/gentoo/dev
+
+cp -L /etc/resolv.conf /mnt/gentoo/etc/
+
+grep 'GENTOO_MIRRORS' /mnt/gentoo/etc/make.conf
+res1=$?
+if [ ! "${res1}" -eq "0" ];then
+  cat >> /mnt/gentoo/etc/make.conf << 'makeconf1EOF'
+GENTOO_MIRRORS="http://gentoo.channelx.biz/ http://gentoo.gg3.net/ ftp://gg3.net/pub/linux/gentoo/ ftp://ftp.iij.ad.jp/pub/linux/gentoo/ http://ftp.iij.ad.jp/pub/linux/gentoo/ rsync://ftp.iij.ad.jp/pub/linux/gentoo/ http://ftp.jaist.ac.jp/pub/Linux/Gentoo/ rsync://ftp.jaist.ac.jp/pub/Linux/Gentoo/"
+makeconf1EOF
+fi
+
+grep 'SYNC' /mnt/gentoo/etc/make.conf
+res2=$?
+if [ ! "${res2}" -eq "0" ] ;then
+  cat >> /mnt/gentoo/etc/make.conf << 'makeconf2EOF'
+SYNC="rsync://rsync5.jp.gentoo.org/gentoo-portage"
+makeconf2EOF
+fi
