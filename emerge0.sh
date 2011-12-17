@@ -13,6 +13,8 @@ read aaa
 lspci
 read aaa
 
+cd /usr/src
+ls -l
 cd /usr/src/linux
 ls -l
 
