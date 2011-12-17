@@ -36,4 +36,4 @@ if [ ! "${res2}" -eq "0" ] ;then
 SYNC="rsync://rsync5.jp.gentoo.org/gentoo-portage"
 makeconf2EOF
 fi
-chroot /mnt/gentoo /bin/bash
+echo "chroot /mnt/gentoo /bin/bash"
