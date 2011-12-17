@@ -11,4 +11,5 @@ echo '
 env-update
 source /etc/profile
 export PS1="(chroot) $PS1"
+cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 '
