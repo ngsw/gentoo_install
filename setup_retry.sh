@@ -37,3 +37,4 @@ SYNC="rsync://rsync5.jp.gentoo.org/gentoo-portage"
 makeconf2EOF
 fi
 echo "chroot /mnt/gentoo /bin/bash"
+echo "wget https://raw.github.com/ngsw/gentoo_install/master/setup_mountafter.sh -O - |sh"
