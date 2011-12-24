@@ -1,4 +1,4 @@
-#1/bin/sh
+#!/bin/sh
 emerge vim
 emerge pciutils
 emerge gentoo-sources
